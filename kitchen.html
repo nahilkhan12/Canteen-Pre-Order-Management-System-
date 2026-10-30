@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#092e68" />
+  <title>QuickBite | Kitchen dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/staff.css" />
+  <script src="js/auth.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/staff.js" defer></script>
+</head>
+<body class="staff-page kitchen-page" data-role="kitchen">
+  <a class="skip-link" href="#mainContent">Skip to kitchen board</a>
+  <svg class="svg-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-food" viewBox="0 0 24 24"><path d="M4 3v6a3 3 0 0 0 6 0V3M7 3v18M18 3c-3 3-4 7-3 10h4M19 3v18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 3H4v18h5M9 12h12m-4-4 4 4-4 4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+  <header class="topbar staff-topbar"><div class="staff-container nav-inner"><a class="brand" href="kitchen.html" aria-label="QuickBite kitchen home"><span class="brand-mark" aria-hidden="true">Q<span class="brand-mark-dot">.</span></span><span class="brand-word">quick<span>bite</span><span class="brand-asterisk">✳</span></span></a><span class="staff-space-label">CAMPUS CANTEEN <span>/</span> KITCHEN SPACE</span><div class="nav-actions"><span class="demo-pill">DEMO</span><button class="staff-profile" type="button" id="logoutButton" aria-label="Sign out"><span class="profile-avatar" aria-hidden="true">K</span><span class="profile-copy"><strong id="profileName">Kitchen</strong><small>Sign out</small></span><svg class="icon"><use href="#i-logout"/></svg></button><button class="mobile-menu-button" type="button" id="staffMenuToggle" aria-label="Toggle kitchen navigation" aria-controls="staffNav" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button></div></div></header>
+  <div class="staff-container staff-layout"><aside class="staff-sidebar"><span class="sidebar-label">YOUR WORKSPACE</span><nav class="staff-nav" id="staffNav" aria-label="Kitchen navigation"><a href="#board" data-view="board" class="active" aria-current="page"><svg class="icon"><use href="#i-grid"/></svg>Order board<span class="nav-count" id="activeOrderCount">0</span></a><a href="#history" data-view="history"><svg class="icon"><use href="#i-check"/></svg>Completed orders</a><a href="#availability" data-view="availability"><svg class="icon"><use href="#i-food"/></svg>Food availability</a></nav><div class="sidebar-note"><span class="sidebar-note-art" aria-hidden="true">✳</span><strong>Fresh food.<br>Happy students.</strong><p>You're the magic behind every good food break.</p><span class="sidebar-note-tag">QUICKBITE KITCHEN</span></div><div class="sidebar-bottom"><span class="connection-dot"></span> Browser demo <small>Changes are saved on this device.</small></div></aside>
+    <main class="staff-main" id="mainContent" tabindex="-1"><div class="workspace-heading"><div><span class="eyebrow dark" id="pageEyebrow">A LITTLE MAGIC IN THE KITCHEN</span><h1 id="pageTitle">Let's serve some smiles<span>.</span></h1><p id="pageDescription">Fresh orders, happy students. Keep the good food moving.</p></div><span class="date-label" id="todayDate"></span></div><div class="kitchen-service-strip"><span class="service-icon" aria-hidden="true">✳</span><div><strong id="serviceStatus">Campus canteen</strong><p id="serviceAnnouncement">Made fresh. Served with a little extra care.</p></div><span class="live-pill"><span class="connection-dot"></span>Local updates</span></div><section class="stats-grid" id="statsGrid" aria-label="Kitchen summary"></section>
+      <section class="staff-view" id="boardView" aria-label="Kitchen order board"><div class="board-toolbar"><div><span class="eyebrow dark">ONE DELICIOUS ORDER AT A TIME</span><h2>The order board<span>.</span></h2></div><label class="staff-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="kitchenSearch" aria-label="Search kitchen orders" placeholder="Search order or student" autocomplete="off" /></label></div><div class="kitchen-board" id="kitchenBoard"></div><p class="board-note"><svg class="icon"><use href="#i-clock"/></svg>Oldest orders appear first. Mark an order ready when every item is packed.</p></section>
+      <section class="staff-view" id="historyView" aria-label="Completed orders" hidden><div class="panel"><div class="panel-heading"><div><span class="eyebrow dark">ANOTHER HAPPY FOOD BREAK</span><h2>All served, all smiles<span>.</span></h2><p>Your completed orders, with the latest first.</p></div><span class="soft-badge" id="completedCount"></span></div><div class="staff-toolbar history-toolbar"><label class="staff-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="historySearch" aria-label="Search completed orders" placeholder="Search order or student" autocomplete="off" /></label></div><div id="historyTable"></div></div></section>
+      <section class="staff-view" id="availabilityView" aria-label="Food availability" hidden><div class="panel"><div class="panel-heading"><div><span class="eyebrow dark">LET STUDENTS KNOW WHAT'S COOKING</span><h2>Fresh picks, ready to order<span>.</span></h2><p>Pause an item when it runs out. Turn it back on when you're ready.</p></div><span class="soft-badge" id="availableCount"></span></div><div class="staff-toolbar"><div class="status-tabs" id="availabilityFilters" aria-label="Filter availability"><button type="button" data-available-filter="All" class="selected" aria-pressed="true">All items</button><button type="button" data-available-filter="Available" aria-pressed="false">Available</button><button type="button" data-available-filter="Unavailable" aria-pressed="false">Unavailable</button></div><label class="staff-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="availabilitySearch" aria-label="Search food availability" placeholder="Search the menu" autocomplete="off" /></label></div><div class="availability-grid" id="availabilityGrid"></div></div></section>
+      <footer class="staff-footer"><span>© <span id="currentYear">2026</span> QuickBite. Good food, right on campus.</span><span>Frontend demo · Saved in this browser</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

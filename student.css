@@ -1,0 +1,22 @@
+/* Additions to the supplied student storefront. */
+.skip-link{position:fixed;top:8px;left:8px;z-index:100;background:white;color:var(--navy);padding:12px 18px;border-radius:8px;transform:translateY(-160%)}
+.skip-link:focus{transform:none}
+.signout-button{background:transparent;border:0;color:#d4eaff;font-size:11px;font-weight:700;padding:10px 3px;white-space:nowrap}
+.site-nav{gap:24px}.nav-inner{gap:18px}
+.hero-note{flex-wrap:wrap;line-height:1.7}.hero-note>span:last-child{max-width:400px;overflow-wrap:anywhere}
+.student-orders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.student-order{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:23px;min-width:0}
+.student-order-top,.student-order-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.student-order-top>strong{font-size:14px;color:var(--navy)}
+.student-order p{font-size:12px;line-height:1.9;color:#4c6278;min-height:45px;overflow-wrap:anywhere}
+.student-order-bottom{font-size:11px;color:var(--muted);margin:20px 0}.student-order-bottom strong{font-size:15px;color:var(--ink)}
+.pickup-token{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed #c8deed;padding-top:15px;letter-spacing:1.4px;font-size:9px;font-weight:800;color:#647c94}
+.pickup-token strong{font-size:21px;color:var(--navy);letter-spacing:2px}
+.order-status{display:inline-flex;align-items:center;border-radius:6px;background:#edf2ff;color:#3a5b98;font-size:9px;font-weight:800;padding:7px 9px;white-space:nowrap}
+.status-preparing{background:#fff1da;color:#946019}.status-ready{background:#e4f6ee;color:#18704a}.status-completed{background:#eaf0f6;color:#59718a}
+.student-demo-label{font-size:10px;font-weight:800;letter-spacing:.5px;color:var(--navy);border:1px solid #bad6ea;background:#e6f4fe;border-radius:30px;padding:8px 12px;white-space:nowrap}
+.unavailable-label{font-size:10px;font-weight:800;padding:10px;color:#6f8090}
+#my-orders{scroll-margin-top:30px}.student-orders>.empty-results{grid-column:1/-1}
+@media(max-width:1000px){.student-orders{grid-template-columns:repeat(2,minmax(0,1fr))}.site-nav{gap:15px}}
+@media(max-width:650px){.signout-button{font-size:10px}.nav-actions{gap:6px}.nav-inner{gap:8px}.student-orders{grid-template-columns:1fr}.student-order{padding:20px}.wallet-pill{padding:8px}.brand-word{font-size:19px}.hero-note{gap:6px}.hero-note>span:last-child{flex-basis:100%}}
+@media(max-width:380px){.brand-word{font-size:16px}.brand-mark{width:29px;height:29px}.brand{gap:7px}.cart-trigger{padding:0 8px}.wallet-pill .icon{display:none}.mobile-menu-button{width:33px}.signout-button{font-size:9px}}

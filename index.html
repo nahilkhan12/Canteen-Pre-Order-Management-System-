@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0A2E67" />
+  <meta name="description" content="QuickBite — a sky-blue Swiggy-inspired campus food ordering demo." />
+  <title>QuickBite | Good food, right on campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/student.css" />
+</head>
+<body data-role="student">
+  <a class="skip-link" href="#menu">Skip to menu</a>
+  <svg class="svg-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.9" cy="10.9" r="7.2"/><path d="m16.3 16.3 5 5"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M20 10.4C20 16 12 22 12 22S4 16 4 10.4a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M4.6 8h14.8l1.2 13H3.4L4.6 8Z"/><path d="M8.2 9V6a3.8 3.8 0 0 1 7.6 0v3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.2 6.6 7.3 1.1-5.3 5.1 1.2 7.2-6.4-3.4-6.5 3.4 1.2-7.2-5.2-5.1 7.2-1.1z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2.3"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M4 12h16"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5.5 5.5L20 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 8V5a2 2 0 0 1 2-2h13M16 13h5M16 14h.1"/></symbol>
+  </svg>
+
+  <header class="topbar" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="QuickBite home">
+        <span class="brand-mark" aria-hidden="true">Q<span class="brand-mark-dot">.</span></span>
+        <span class="brand-word">quick<span>bite</span><span class="brand-asterisk">✳</span></span>
+      </a>
+      <nav class="site-nav" id="siteNav" aria-label="Main menu">
+        <a href="#menu">Explore menu</a>
+        <a href="#my-orders">My orders</a>
+        <a href="#offers">Offers</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="wallet-pill" title="Demo wallet balance"><svg class="icon"><use href="#i-wallet"/></svg><span>Wallet</span><strong id="walletAmount">₹540</strong></div>
+        <button class="cart-trigger" type="button" id="openCart" aria-label="Open your cart"><svg class="icon"><use href="#i-bag"/></svg><span>Cart</span><span class="cart-number" id="cartCount">0</span></button>
+        <button class="mobile-menu-button" type="button" id="menuToggle" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+        <button class="signout-button" type="button" id="signOut" aria-label="Sign out">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-banner" aria-labelledby="heroTitle">
+      <div class="hero-decoration deco-one" aria-hidden="true"></div>
+      <div class="hero-decoration deco-two" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow light"><span class="eyebrow-dot"></span> HEY <span id="studentName">ALEX</span>, GOOD FOOD AWAITS</span>
+          <h1 id="heroTitle">Your next good meal is <em>just a click away.</em></h1>
+          <p>Fresh favorites, pocket-friendly prices, and more time for the things you love. Hungry? We’ve got you.</p>
+          <form class="hero-search-form" id="heroSearchForm" role="search">
+            <div class="search-place"><svg class="icon"><use href="#i-map"/></svg><span>Campus Canteen</span><svg class="icon chevron"><use href="#i-chevron"/></svg></div>
+            <div class="search-divider"></div>
+            <label class="search-query" for="heroSearch"><svg class="icon"><use href="#i-search"/></svg><input id="heroSearch" type="search" placeholder="Search pizza, biryani, burgers..." autocomplete="off" /></label>
+            <button class="search-button" type="submit" aria-label="Search menu"><svg class="icon"><use href="#i-arrow"/></svg></button>
+          </form>
+          <div class="hero-note"><span class="hero-note-icon">✦</span><span id="canteenStatus">Canteen open</span><span aria-hidden="true">·</span><span id="canteenAnnouncement">Freshly made. Served with a smile.</span></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-ring ring-back"></div>
+          <div class="hero-card hero-card-main">
+            <div class="hero-card-plate pizza-plate"><span>🍕</span></div>
+            <div class="hero-card-info"><span>THE LUNCH FIX</span><strong>Pizza break!</strong><small>Hot, cheesy & happiness-packed</small></div>
+          </div>
+          <div class="hero-floating hero-floating-top"><span>🍟</span><strong>Snack o’clock!</strong></div>
+          <div class="hero-floating hero-floating-bottom"><span>⭐</span><strong>Student favorites</strong></div>
+          <div class="hero-sparkle sparkle-a">✳</div><div class="hero-sparkle sparkle-b">✺</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container highlights-wrap">
+      <div class="highlights-strip" aria-label="QuickBite benefits">
+        <div><span class="benefit-symbol">✳</span><strong>Made fresh daily</strong><span>Every order, every time</span></div>
+        <div><span class="benefit-symbol">↗</span><strong>Easy on your wallet</strong><span>Student-friendly prices</span></div>
+        <div><span class="benefit-symbol">♡</span><strong>Ready for your break</strong><span>Less waiting, more eating</span></div>
+      </div>
+    </div>
+
+    <section class="section categories-section" id="categories" aria-labelledby="categoriesTitle">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow dark">A LITTLE BIT OF EVERYTHING</span><h2 id="categoriesTitle">What's on your mind<span class="ink-dot">?</span></h2><p>Pick a craving. We'll handle the rest.</p></div><a class="text-link" href="#menu">View full menu <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <div class="category-grid" id="categoryGrid">
+          <button type="button" class="category-tile active" data-category="All"><span class="category-art art-all">🍽️</span><strong>All food</strong><small>Explore all</small></button>
+          <button type="button" class="category-tile" data-category="Pizza"><span class="category-art art-pizza">🍕</span><strong>Pizza</strong><small>Cheesy bites</small></button>
+          <button type="button" class="category-tile" data-category="Burger"><span class="category-art art-burger">🍔</span><strong>Burgers</strong><small>Big flavors</small></button>
+          <button type="button" class="category-tile" data-category="Indian"><span class="category-art art-indian">🍛</span><strong>Indian</strong><small>Desi cravings</small></button>
+          <button type="button" class="category-tile" data-category="Snacks"><span class="category-art art-snacks">🍟</span><strong>Snacks</strong><small>Quick munch</small></button>
+          <button type="button" class="category-tile" data-category="Drinks"><span class="category-art art-drinks">🥤</span><strong>Drinks</strong><small>Cool sips</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu" aria-labelledby="menuTitle">
+      <div class="container">
+        <div class="section-heading menu-heading"><div><span class="eyebrow dark">FROM OUR KITCHEN, WITH LOVE</span><h2 id="menuTitle">Today's tasty picks<span class="ink-dot">.</span></h2><p>Good food hits different between classes.</p></div><div class="menu-count" id="menuCount">8 delicious picks</div></div>
+        <div class="filter-bar" aria-label="Filter food"><div class="filter-buttons"><button class="filter-btn selected" type="button" data-filter="all">All picks</button><button class="filter-btn" type="button" data-filter="veg"><span class="veg-square">●</span> Veg only</button><button class="filter-btn" type="button" data-filter="under100">Under ₹100</button><button class="filter-btn" type="button" data-filter="popular">Most popular</button></div><label class="sort-control">Sort by <select id="sortSelect"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option></select></label></div>
+        <div class="food-grid" id="foodGrid" aria-live="polite"></div>
+        <div class="empty-results" id="emptyResults" hidden><span>🔎</span><h3>Nothing on the menu matches.</h3><p>Try another search or clear your filters.</p><button type="button" id="resetSearch" class="primary-btn">Show all food</button></div>
+      </div>
+    </section>
+
+    <section class="section" id="my-orders" aria-labelledby="ordersTitle"><div class="container"><div class="section-heading"><div><span class="eyebrow dark">FROM OUR KITCHEN TO YOUR BREAK</span><h2 id="ordersTitle">Your food, on its way<span class="ink-dot">.</span></h2><p>Follow your orders and show your token at pickup.</p></div><span class="student-demo-label">Demo orders</span></div><div class="student-orders" id="studentOrders" aria-live="polite"></div></div></section>
+
+    <section class="offers-section" id="offers" aria-label="Special offer"><div class="container"><div class="offers-inner"><div class="offers-stamp">✳<br>DEAL</div><div><span class="eyebrow dark">SOMETHING EXTRA FOR YOUR BREAK</span><h2>Big cravings. <span>Small prices.</span></h2><p>Pick your favorites for under ₹100 — good taste doesn't need a big budget.</p></div><button class="offers-button" type="button" id="exploreOffer">Explore budget bites <svg class="icon"><use href="#i-arrow"/></svg></button></div></div></section>
+
+    <section class="section how-section" id="how-it-works" aria-labelledby="howTitle"><div class="container"><div class="section-heading centered"><div><span class="eyebrow dark">THE SIMPLE STUFF</span><h2 id="howTitle">Eat happy in 3 steps<span class="ink-dot">.</span></h2><p>Your next break just got a whole lot tastier.</p></div></div><div class="steps-grid"><div class="step-card"><span class="step-number">01</span><span class="step-icon">🔎</span><h3>Find your favorite</h3><p>Browse the menu and pick whatever your stomach's asking for.</p></div><div class="step-card"><span class="step-number">02</span><span class="step-icon">🛒</span><h3>Add to your cart</h3><p>Choose your bites and check your total before ordering.</p></div><div class="step-card"><span class="step-number">03</span><span class="step-icon">😋</span><h3>Enjoy your break</h3><p>Order in a few taps — no long queues, just good food.</p></div></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><a class="brand brand-dark" href="#top"><span class="brand-mark">Q<span class="brand-mark-dot">.</span></span><span class="brand-word">quick<span>bite</span><span class="brand-asterisk">✳</span></span></a><p>Good food, good mood, right here on campus. Made for busy days and hungry students.</p></div><div class="footer-links"><div><strong>Quick links</strong><a href="#menu">Our menu</a><a href="#categories">Categories</a><a href="#offers">Offers</a></div><div><strong>Learn more</strong><a href="#how-it-works">How it works</a><a href="#top">Back to top</a><a href="#menu">Student favorites</a></div><div><strong>We're here for you</strong><span>Campus Canteen</span><span>Fresh food, everyday</span><span>Happy food breaks ✳</span></div></div></div><div class="footer-bottom"><span>© <span id="currentYear">2026</span> QuickBite. Campus food, made easy.</span><span>UI prototype • Demo checkout only • Not connected to a backend</span></div></div></footer>
+
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartHeading" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow dark">YOUR HAPPY LITTLE BAG</span><h2 id="cartHeading">Your cart <span id="drawerCount">(0)</span></h2></div><button class="icon-button" id="closeCart" type="button" aria-label="Close cart"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <div id="cartContent" class="cart-body"></div>
+    <div id="cartFooter" class="cart-footer" hidden><div class="bill-line"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div><div class="bill-line"><span>Campus pickup</span><strong class="free-label">FREE</strong></div><div class="bill-total"><span>To pay</span><strong id="cartTotal">₹0</strong></div><button class="checkout-button" type="button" id="placeOrder">Place demo order <svg class="icon"><use href="#i-arrow"/></svg></button><p class="demo-note">Demo only. No real payment or kitchen order is made.</p></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/auth.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#092e68" />
+  <title>QuickBite | Admin dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/staff.css" />
+  <script src="js/auth.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/staff.js" defer></script>
+</head>
+<body class="staff-page" data-role="admin">
+  <a class="skip-link" href="#mainContent">Skip to dashboard</a>
+  <svg class="svg-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-food" viewBox="0 0 24 24"><path d="M4 3v6a3 3 0 0 0 6 0V3M7 3v18M18 3c-3 3-4 7-3 10h4M19 3v18"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-5-5L4 14Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 3H4v18h5M9 12h12m-4-4 4 4-4 4"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 8V5a2 2 0 0 1 2-2h13M16 13h5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+  <header class="topbar staff-topbar">
+    <div class="staff-container nav-inner">
+      <a class="brand" href="admin.html" aria-label="QuickBite admin home"><span class="brand-mark" aria-hidden="true">Q<span class="brand-mark-dot">.</span></span><span class="brand-word">quick<span>bite</span><span class="brand-asterisk">✳</span></span></a>
+      <span class="staff-space-label">CAMPUS CANTEEN <span>/</span> ADMIN SPACE</span>
+      <div class="nav-actions"><span class="demo-pill">DEMO</span><button class="staff-profile" type="button" id="logoutButton" aria-label="Sign out"><span class="profile-avatar" aria-hidden="true">A</span><span class="profile-copy"><strong id="profileName">Admin</strong><small>Sign out</small></span><svg class="icon"><use href="#i-logout"/></svg></button><button class="mobile-menu-button" type="button" id="staffMenuToggle" aria-label="Toggle dashboard navigation" aria-controls="staffNav" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button></div>
+    </div>
+  </header>
+  <div class="staff-container staff-layout">
+    <aside class="staff-sidebar">
+      <span class="sidebar-label">YOUR WORKSPACE</span>
+      <nav class="staff-nav" id="staffNav" aria-label="Admin navigation">
+        <a href="#overview" data-view="overview" class="active" aria-current="page"><svg class="icon"><use href="#i-grid"/></svg>Overview</a>
+        <a href="#orders" data-view="orders"><svg class="icon"><use href="#i-bag"/></svg>Orders<span class="nav-count" id="activeOrderCount">0</span></a>
+        <a href="#menu" data-view="menu"><svg class="icon"><use href="#i-food"/></svg>Menu management</a>
+        <a href="#settings" data-view="settings"><svg class="icon"><use href="#i-settings"/></svg>Canteen settings</a>
+      </nav>
+      <div class="sidebar-note"><span class="sidebar-note-art" aria-hidden="true">✳</span><strong>Good food.<br>Great teamwork.</strong><p>A little care behind every campus craving.</p><span class="sidebar-note-tag">QUICKBITE CREW</span></div>
+      <div class="sidebar-bottom"><span class="connection-dot"></span> Browser demo <small>Changes are saved on this device.</small></div>
+    </aside>
+    <main class="staff-main" id="mainContent" tabindex="-1">
+      <div class="workspace-heading"><div><span class="eyebrow dark" id="pageEyebrow">A LITTLE BEHIND THE SCENES</span><h1 id="pageTitle">Good food starts here<span>.</span></h1><p id="pageDescription">Your canteen, at a glance. Let's make today delicious.</p></div><span class="date-label" id="todayDate"></span></div>
+      <section class="staff-hero" id="staffHero"><div><span class="eyebrow light"><span class="eyebrow-dot"></span> THE CAMPUS IS HUNGRY</span><h2>Small details.<br><em>Happier food breaks.</em></h2><p>Keep your menu fresh and every order moving.</p><button class="hero-action" type="button" data-go="orders">View all orders <svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="staff-hero-art" aria-hidden="true"><span class="hero-art-orbit"></span><span class="hero-art-plate">🍽️</span><span class="hero-art-chip chip-one">✦ Made with care</span><span class="hero-art-chip chip-two">Fresh every day ♡</span></div></section>
+      <section class="stats-grid" id="statsGrid" aria-label="Canteen summary"></section>
+      <section class="staff-view" id="overviewView" aria-label="Overview"><div class="overview-grid"><div class="panel"><div class="panel-heading"><div><span class="eyebrow dark">FRESH OFF THE COUNTER</span><h2>Recent orders<span>.</span></h2></div><button class="plain-link" type="button" data-go="orders">View all <svg class="icon"><use href="#i-arrow"/></svg></button></div><div id="recentOrders"></div></div><div class="panel menu-snapshot"><div class="panel-heading"><div><span class="eyebrow dark">READY TO SERVE</span><h2>Menu check<span>.</span></h2></div><svg class="icon"><use href="#i-food"/></svg></div><div id="menuSnapshot"></div><button class="secondary-btn full-width" type="button" data-go="menu">Manage your menu <svg class="icon"><use href="#i-arrow"/></svg></button></div></div></section>
+      <section class="staff-view" id="ordersView" aria-label="Manage orders" hidden><div class="panel"><div class="panel-heading"><div><h2>Every order, in one place<span>.</span><p>Move orders forward as your team prepares and serves them.</p></div><span class="soft-badge" id="orderResultsCount"></span></div><div class="staff-toolbar"><div class="status-tabs" id="orderFilters" aria-label="Filter orders by status"></div><label class="staff-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="orderSearch" aria-label="Search orders" placeholder="Search order or student" autocomplete="off" /></label></div><div id="ordersTable"></div></div></section>
+      <section class="staff-view" id="menuView" aria-label="Manage menu" hidden><div class="panel"><div class="panel-heading"><div><h2>Keep the good food coming<span>.</span></h2><p>Set prices, update stock, and choose what's available.</p></div><button type="button" class="primary-btn button-with-icon" id="addMenuItem"><svg class="icon"><use href="#i-plus"/></svg>Add new item</button></div><div class="staff-toolbar"><div class="status-tabs" id="menuFilters" aria-label="Filter menu category"></div><label class="staff-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="menuSearch" aria-label="Search menu" placeholder="Search the menu" autocomplete="off" /></label></div><div id="menuTable"></div></div></section>
+      <section class="staff-view" id="settingsView" aria-label="Canteen settings" hidden><div class="settings-grid"><form class="panel settings-form" id="settingsForm"><div class="panel-heading"><div><span class="eyebrow dark">MAKE IT YOURS</span><h2>Canteen settings<span>.</span></h2><p>Keep students in the loop before they order.</p></div></div><div class="settings-switch-row"><div><strong>Accept new orders</strong><p>Students can order while the canteen is open.</p></div><label class="switch-control"><input type="checkbox" id="canteenOpen" /><span class="switch-track" aria-hidden="true"></span><span class="sr-only">Canteen open for orders</span></label></div><label class="form-label" for="announcement">Student announcement</label><textarea id="announcement" maxlength="180" rows="4" placeholder="e.g. Lunch is ready! Pick up your order at Counter 1."></textarea><p class="field-hint">Shown on the student menu. Leave blank to hide it.</p><div class="form-actions"><span class="settings-save-state" id="settingsSaveState" role="status"></span><button type="submit" class="primary-btn">Save changes</button></div></form><aside class="panel settings-tip"><span class="tip-art" aria-hidden="true">📣</span><span class="eyebrow dark">A HEADS-UP GOES A LONG WAY</span><h2>A little update.<br>A smoother break.</h2><p>Share pickup instructions, today's specials, or a short break in service. Your students will see the latest update on their menu.</p><div class="demo-callout"><strong>Frontend demo</strong><p>Orders, menu edits, and settings are stored in this browser. No real payment or server is connected.</p></div></aside></div></section>
+      <footer class="staff-footer"><span>© <span id="currentYear">2026</span> QuickBite. Good food, right on campus.</span><span>Frontend demo · Saved in this browser</span></footer>
+    </main>
+  </div>
+  <dialog class="menu-dialog" id="menuDialog" aria-labelledby="menuDialogTitle"><form id="menuItemForm"><div class="dialog-heading"><div><span class="eyebrow dark">FRESHEN UP THE MENU</span><h2 id="menuDialogTitle">Add a little delicious<span>.</span></h2></div><button type="button" class="icon-button" id="closeMenuDialog" aria-label="Close item editor"><svg class="icon"><use href="#i-close"/></svg></button></div><input id="itemId" type="hidden" /><div class="form-grid"><div class="field field-wide"><label class="form-label" for="itemName">Item name</label><input id="itemName" required maxlength="70" placeholder="e.g. Cheese Chilli Toast" /></div><div class="field"><label class="form-label" for="itemCategory">Category</label><select id="itemCategory"><option>Pizza</option><option>Burger</option><option>Indian</option><option>Snacks</option><option>Drinks</option></select></div><div class="field"><label class="form-label" for="itemEmoji">Food emoji</label><input id="itemEmoji" maxlength="12" placeholder="🍽️" /></div><div class="field"><label class="form-label" for="itemPrice">Price (₹)</label><input id="itemPrice" type="number" min="1" max="10000" step="1" required /></div><div class="field"><label class="form-label" for="itemStock">Stock available</label><input id="itemStock" type="number" min="0" max="10000" step="1" required /></div><div class="field field-wide"><label class="form-label" for="itemDescription">Short description</label><textarea id="itemDescription" maxlength="180" rows="2" placeholder="Tell students what makes it tasty."></textarea></div></div><div class="check-row"><label><input type="checkbox" id="itemVeg" checked /> Vegetarian</label><label><input type="checkbox" id="itemAvailable" checked /> Available to order</label></div><p class="form-error" id="menuFormError" role="alert" hidden></p><div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelMenuDialog">Cancel</button><button type="submit" class="primary-btn">Save menu item</button></div></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

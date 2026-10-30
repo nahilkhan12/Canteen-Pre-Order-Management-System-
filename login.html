@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#092e68" />
+  <meta name="description" content="Sign in to QuickBite as a student, campus admin, or kitchen team member." />
+  <title>QuickBite | Welcome back</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <script src="js/auth.js" defer></script>
+  <script src="js/login.js" defer></script>
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-welcome" aria-labelledby="welcomeTitle">
+      <div class="login-orbit login-orbit-top" aria-hidden="true"></div>
+      <div class="login-orbit login-orbit-bottom" aria-hidden="true"></div>
+      <div class="brand login-brand" aria-label="QuickBite">
+        <span class="brand-mark" aria-hidden="true">Q<span class="brand-mark-dot">.</span></span>
+        <span class="brand-word">quick<span>bite</span><span class="brand-asterisk">✳</span></span>
+      </div>
+      <div class="welcome-copy">
+        <span class="eyebrow light"><span class="eyebrow-dot"></span> YOUR CAMPUS. YOUR CANTEEN.</span>
+        <h1 id="welcomeTitle">Good food.<br /><em>Great campus days.</em></h1>
+        <p>From your first class to your last craving, a little good food goes a long way.</p>
+        <div class="login-food-scene" aria-hidden="true">
+          <div class="login-food-ring"></div>
+          <div class="login-food-card">
+            <div class="login-food-art"><span>🍔</span></div>
+            <div class="login-food-info"><span>YOUR BREAK, UPGRADED</span><strong>Happiness, served fresh.</strong><small>Made for your campus cravings</small></div>
+          </div>
+          <div class="login-food-chip chip-top"><span>🍟</span> A little snack magic</div>
+          <div class="login-food-chip chip-bottom"><span>✦</span> Good food. Better breaks.</div>
+          <span class="login-scene-star">✳</span>
+        </div>
+      </div>
+      <div class="login-welcome-footer"><span>Fresh favorites. Familiar faces.</span><span aria-hidden="true">✦</span></div>
+    </section>
+
+    <section class="login-form-section" aria-labelledby="loginTitle">
+      <div class="login-card">
+        <div class="login-title-icon" aria-hidden="true">↗</div>
+        <span class="eyebrow dark">A GOOD DAY STARTS HERE</span>
+        <h2 id="loginTitle">Welcome back<span>.</span></h2>
+        <p class="login-intro">Your next good meal is just a sign-in away.</p>
+
+        <div class="login-role-group" role="group" aria-label="Choose account type">
+          <button class="login-role selected" type="button" data-role="student" aria-pressed="true">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5-10-5ZM6 11v6c4 3 8 3 12 0v-6M22 9v7"/></svg><span>Student</span>
+          </button>
+          <button class="login-role" type="button" data-role="admin" aria-pressed="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Admin</span>
+          </button>
+          <button class="login-role" type="button" data-role="kitchen" aria-pressed="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14a5 5 0 0 1-1-10 4 4 0 0 1 6-1 4 4 0 0 1 6 1 5 5 0 0 1-1 10v6H7v-6ZM7 16h10"/></svg><span>Kitchen</span>
+          </button>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="login-field">
+            <label for="loginEmail">Email address</label>
+            <div class="login-input-wrap">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>
+              <input id="loginEmail" type="email" name="email" autocomplete="username" placeholder="student@quickbite.demo" required aria-describedby="loginEmailError" />
+            </div>
+            <p class="login-field-error" id="loginEmailError" hidden></p>
+          </div>
+          <div class="login-field">
+            <label for="loginPassword">Password</label>
+            <div class="login-input-wrap">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>
+              <input id="loginPassword" type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required aria-describedby="loginPasswordError" />
+              <button class="login-password-toggle" type="button" id="passwordToggle" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p class="login-field-error" id="loginPasswordError" hidden></p>
+          </div>
+          <p class="login-error" id="loginError" role="alert" hidden></p>
+          <button class="login-submit" id="loginSubmit" type="submit"><span id="loginSubmitLabel">Sign in as student</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+        </form>
+
+        <div class="login-demo-panel">
+          <div class="login-demo-heading"><span class="login-demo-symbol" aria-hidden="true">✳</span><strong>Just looking around?</strong><button type="button" id="fillDemoDetails">Use demo details <span aria-hidden="true">↗</span></button></div>
+          <p><span id="demoEmail">student@quickbite.demo</span><br />Password: <strong>quickbite123</strong></p>
+        </div>
+        <p class="login-demo-note">Frontend demo · Sample accounts, no real authentication.</p>
+        <a class="login-back-link" id="backToMenu" href="index.html" hidden>← Back to student menu</a>
+      </div>
+      <div class="login-form-footer">One campus. Something for everyone.<span aria-hidden="true">♡</span></div>
+    </section>
+  </main>
+</body>
+</html>
